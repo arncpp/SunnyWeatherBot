@@ -1,6 +1,7 @@
 import time
-from Globals import bot
 from telebot import types
+
+from Globals import bot
 
 
 class TestTeleBot:

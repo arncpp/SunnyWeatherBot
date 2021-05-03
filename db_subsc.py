@@ -13,8 +13,6 @@ class SQL_db:
                 "SELECT * FROM `subscriptions` WHERE `status` = ?",
                 (status,)).fetchall()
 
-
-
     def subscriber_exists(self, user_id):
         with self.connection:
             result = self.cursor.execute(

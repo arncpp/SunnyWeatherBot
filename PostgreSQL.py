@@ -7,6 +7,7 @@ class postgres_db:
     """
     База данных heroku PostgreSQL
     """
+
     def __init__(self):
         self.connection = psycopg2.connect(user="------------",
                                            password="--------",
@@ -61,7 +62,7 @@ class postgres_db:
         :return: True or False
         """
         with self.connection:
-            result = self.cursor.execute(
+            self.cursor.execute(
                 f'SELECT * FROM subscriptions WHERE USER_ID = {user_id}')
             res = self.cursor.fetchall()
             print(bool(len(res)))
@@ -125,8 +126,3 @@ class postgres_db:
         Закрывает соединение с базой данных
         """
         self.connection.close()
-
-
-
-
-

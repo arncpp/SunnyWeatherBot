@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import schedule
-import telebot
 from telebot import types
 from time import sleep
 from threading import Thread

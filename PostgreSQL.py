@@ -3,17 +3,18 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 from psycopg2 import Error
 
 
-class postgres_db:
+class PostgresDb:
     """
     База данных heroku PostgreSQL
     """
 
     def __init__(self):
-        self.connection = psycopg2.connect(user="------------",
-                                           password="--------",
-                                           host="------------",
-                                           port="------------",
-                                           database="--------")
+
+        self.connection = psycopg2.connect(user="-----------",
+                                           password="-------",
+                                           host="-----------",
+                                           port="-----------",
+                                           database="-------")
         self.cursor = self.connection.cursor()
         self.table = '''CREATE TABLE subscriptions
                           (ID             INT       PRIMARY KEY   NOT NULL,
@@ -27,7 +28,7 @@ class postgres_db:
         """
         try:
             self.connection.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
-            self.cursor.execute('create database -------------')
+            self.cursor.execute('create database ------------')
         except (Exception, Error):
             print("База данных уже была создана")
 
@@ -35,7 +36,6 @@ class postgres_db:
         """
         Создание таблицы в базе данных, но в глобальной базе данных на Хероку
         она создается через консоль с помощью команды heroku pg:psql
-        :return:
         """
         try:
             self.cursor.execute(self.table)
@@ -62,7 +62,7 @@ class postgres_db:
         :return: True or False
         """
         with self.connection:
-            self.cursor.execute(
+            result = self.cursor.execute(
                 f'SELECT * FROM subscriptions WHERE USER_ID = {user_id}')
             res = self.cursor.fetchall()
             print(bool(len(res)))
@@ -73,7 +73,7 @@ class postgres_db:
         Добавляет пользователя в базу данных, дает ему подписку
         :param user_id: id пользователя
         :param status: статус подписки
-        :return:
+        :return: добавление нового подписчика
         """
         with self.connection:
             print("Подписка")
@@ -91,7 +91,7 @@ class postgres_db:
         (если он отписался или подписался снова)
         :param user_id: id пользователя
         :param status: статус подписки
-        :return:
+        :return: обновление статуса подписки
         """
         with self.connection:
             self.cursor.execute(

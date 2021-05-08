@@ -1,6 +1,7 @@
 <h1 id="-2999">SunnyWeatherBot</h1>
 <blockquote>
 <p>Телеграмм Бот Sunny - твой друг, который поможет узнать погоду и самые актуальные новости в мире.
+Как найти бота в Telegram? Введите @arn_weather_bot в строке "поиск". 
 </p>
 </blockquote>
 <blockquote>

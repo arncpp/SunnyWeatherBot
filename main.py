@@ -183,7 +183,4 @@ def for_subscribers():
 if __name__ == "__main__":
     schedule.every().day.at(Globals.mailing_time).do(for_subscribers)
     Thread(target=schedule_checker).start()
-    try:
-        bot.polling(none_stop=True, interval=0)
-    except:
-        pass
+    bot.polling(none_stop=True, interval=0)

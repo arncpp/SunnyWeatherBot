@@ -62,8 +62,7 @@ class PostgresDb:
         :return: True or False
         """
         with self.connection:
-            result = self.cursor.execute(
-                f'SELECT * FROM subscriptions WHERE USER_ID = {user_id}')
+            self.cursor.execute(f'SELECT * FROM subscriptions WHERE USER_ID = {user_id}')
             res = self.cursor.fetchall()
             print(bool(len(res)))
             return bool(len(res))

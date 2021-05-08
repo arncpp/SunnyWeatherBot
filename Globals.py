@@ -22,6 +22,11 @@ class Globals(object):
     # --------------Клавиатура------------
     default_keyboard = types.ReplyKeyboardMarkup(row_width=1,
                                                  resize_keyboard=True)
+    # --------------Тесты-----------------
+    user_id_test = 11
+    user_id_test_1 = 1
+    first_name = "test"
+    content_type = "text"
     # --------------Кнопки----------------
     btn_mailing_text = "Рассылка ✨"
     btn_news_text = "Новости ✨"
@@ -40,7 +45,7 @@ class Globals(object):
                    "Я могу тебе рассказать про погоду, а также про последние новости!\n" \
                    "Список команд: /start - начать работу с ботом, главное меню\n" \
                    "/subscribe - подписаться на рассылку новостей\n" \
-                   "/unsubdcribe - отписаться от рассылки новостей\n" \
+                   "/unsubscribe - отписаться от рассылки новостей\n" \
                    "/weather - узнать погоду\n" \
                    "/news -  узнать последние новости\n" \
                    "/help - помощь\n" \

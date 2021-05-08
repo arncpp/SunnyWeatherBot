@@ -36,10 +36,10 @@ class TestTeleBot:
 
     @staticmethod
     def create_text_message(text):
-        params = {"text": text}
-        chat = types.User(11, False, "test")
-        print(types.Message(1, None, None, chat, "text", params, ""))
-        return types.Message(1, None, None, chat, "text", params, "")
+        params = {Globals.content_type: text}
+        chat = types.User(Globals.user_id_test, False, Globals.first_name)
+        print(types.Message(Globals.user_id_test_1, None, None, chat, Globals.content_type, params, ""))
+        return types.Message(Globals.user_id_test_1, None, None, chat, Globals.content_type, params, "")
 
 
 TestTeleBot().test_message_handler()

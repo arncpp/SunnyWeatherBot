@@ -128,6 +128,11 @@ class Globals(object):
     header = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                       "(KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36"}
+    json_txt_crop_from = 5
+    json_txt_crop_to = 10
+    json_txt_crop_end = 16
+    space_num = 8
+    continue_num = 2
 
 
 # --------------Бот-------------

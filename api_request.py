@@ -62,16 +62,16 @@ def weather_5days_api(message):
                   Globals.language: Globals.rus_language}
         result = requests.get(url_forecast, params=params)
         weather = result.json()
-        for i in weather[Globals.json_weather_list]:
-            print(i[Globals.json_dt_txt])
+        for weather_list_element in weather[Globals.json_weather_list]:
+            print(weather_list_element[Globals.json_dt_txt])
         city = weather[Globals.json_weather_city][Globals.city_name_for_search]
         text = ""
-        for num, i in enumerate(weather[Globals.json_weather_list]):
-            if num % 2 == 0:
-                text += f"{i[Globals.json_dt_txt][5:10]}" \
-                        f"\t\t\t {i[Globals.json_dt_txt][10:16]} " \
-                        f"\t\t\t {float(i[Globals.json_main][Globals.json_temperature])} ℃\n"
-            if (num + 1) % 8 == 0:
+        for num, weather_list_element in enumerate(weather[Globals.json_weather_list]):
+            if num % Globals.continue_num == 0:
+                text += f"{weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop_from:Globals.json_txt_crop_to]}" \
+                        f"\t\t\t {weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop_to:Globals.json_txt_crop_end]} " \
+                        f"\t\t\t {float(weather_list_element[Globals.json_main][Globals.json_temperature])} ℃\n"
+            if (num + 1) % Globals.space_num == 0:
                 text += "\n"
         weather_text = bot.send_message(message.chat.id, f" {city}:\n{text}",
                                         reply_markup=keyboard)

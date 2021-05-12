@@ -140,13 +140,10 @@ def parsing_news_for_sub():
                          class_=Globals.last_news_item_class)
     for i in range(0, len(title[:Globals.news_crop])):
         txt = f"{str(i + 1)} ) {title[i].text}"
-        for id in subscribers:
-            print(id[1])
-            bot.send_message(id[1],
-                             Globals.text_to_link.format(
-                                 title[i][Globals.link_format],
-                                 txt),
-                             parse_mode=Globals.html_pars_mode)
+        bot.send_message(subscribers[1],
+                         Globals.text_to_link.format(title[i][Globals.link_format],
+                             txt),
+                         parse_mode=Globals.html_pars_mode)
 
 
 def parsing_last_news(message):

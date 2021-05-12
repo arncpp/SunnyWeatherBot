@@ -1,6 +1,6 @@
+import os
 import telebot
 from telebot import types
-
 from PostgreSQL import PostgresDb
 
 
@@ -136,11 +136,11 @@ class Globals(object):
 
 
 # --------------Бот-------------
-TOKEN = "-------------------"
+TOKEN = os.environ.get("token")
 bot = telebot.TeleBot(TOKEN)
 
 # --------------API-------------
-api_key = "-----------------"
+api_key = os.environ.get("apikey")
 
 # --------------Ссылки----------
 url_openweather = "http://api.openweathermap.org/data/2.5/weather"

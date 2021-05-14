@@ -141,7 +141,8 @@ def parsing_news_for_sub():
     for i in range(0, len(title[:Globals.news_crop])):
         txt = f"{str(i + 1)} ) {title[i].text}"
         bot.send_message(subscribers[1],
-                         Globals.text_to_link.format(title[i][Globals.link_format],
+                         Globals.text_to_link.format(
+                             title[i][Globals.link_format],
                              txt),
                          parse_mode=Globals.html_pars_mode)
 

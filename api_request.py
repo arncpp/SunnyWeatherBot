@@ -68,8 +68,8 @@ def weather_5days_api(message):
         text = ""
         for num, weather_list_element in enumerate(weather[Globals.json_weather_list]):
             if num % Globals.continue_num == 0:
-                text += f"{weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop_from:Globals.json_txt_crop]}" \
-                        f"\t\t\t {weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop:Globals.json_txt_crop_end]}" \
+                text += f"{weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop_from:Globals.json_txt_crop]}"\
+                        f"\t\t\t {weather_list_element[Globals.json_dt_txt][Globals.json_txt_crop:Globals.json_txt_crop_end]}"\
                         f"\t\t\t {float(weather_list_element[Globals.json_main][Globals.json_temperature])} ℃\n"
             if (num + 1) % Globals.space_num == 0:
                 text += "\n"
